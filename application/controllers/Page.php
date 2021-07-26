@@ -17,8 +17,6 @@ class Page extends MY_Controller
         ];
         //CASH IN HAND
 
-
-        // function render_backend tersebut dari file core/MY_Controller.php
         $this->render_backend('home', $data); // load view home.php
     }
 }

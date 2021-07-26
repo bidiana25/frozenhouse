@@ -25,8 +25,18 @@
                     </p>
                 </a>
             </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">
+            <li class="nav-item <?=
+                                $this->uri->segment(1) == 'Barang' ||
+                                    $this->uri->segment(1) == 'KategoriBarang' ||
+                                    $this->uri->segment(1) == 'SatuanBarang' ||
+                                    $this->uri->segment(1) == 'Supplier' ||
+                                    $this->uri->segment(1) == 'Pelanggan' ? 'menu-open' : '' ?>">
+                <a href="#" class="nav-link <?=
+                                            $this->uri->segment(1) == 'Barang' ||
+                                                $this->uri->segment(1) == 'KategoriBarang' ||
+                                                $this->uri->segment(1) == 'SatuanBarang' ||
+                                                $this->uri->segment(1) == 'Supplier' ||
+                                                $this->uri->segment(1) == 'Pelanggan' ? 'active' : '' ?>">
                     <i class="nav-icon fas fa-table"></i>
                     <p>
                         Data Master
@@ -35,31 +45,42 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="../tables/jsgrid.html" class="nav-link">
+                        <a href="<?= base_url("Barang/"); ?>" class="nav-link 
+                        <?php if ($this->uri->segment(1) == "Barang") {
+                            echo 'active';
+                        } ?>">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Barang</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../tables/data.html" class="nav-link">
+                        <a href="<?= base_url("KategoriBarang/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "KategoriBarang") {
+                                                                                            echo 'active';
+                                                                                        } ?>">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Kategori Barang</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../tables/jsgrid.html" class="nav-link">
+                        <a href="<?= base_url("SatuanBarang/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "SatuanBarang") {
+                                                                                        echo 'active';
+                                                                                    } ?>">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Satuan Barang</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../tables/jsgrid.html" class="nav-link">
+                        <a href="<?= base_url("Supplier/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "Supplier") {
+                                                                                    echo 'active';
+                                                                                } ?>">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Supplier</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="../tables/simple.html" class="nav-link">
+                        <a href="<?= base_url("Pelanggan/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "Pelanggan") {
+                                                                                        echo 'active';
+                                                                                    } ?>">
                             <i class="far fa-circle nav-icon"></i>
                             <p>Pelanggan</p>
                         </a>
