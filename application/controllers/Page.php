@@ -13,7 +13,7 @@ class Page extends MY_Controller
     {
         $data = [
 
-            "title" => "Dashboard SIA",
+            "title" => "Dashboard",
         ];
         //CASH IN HAND
 
