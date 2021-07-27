@@ -113,7 +113,7 @@
                                                                             } ?>">
                         <i class="nav-icon fas fa-newspaper"></i>
                         <p>
-                            Laporan Data Penjualan
+                            Cetak Data Penjualan
                         </p>
                     </a>
                 </li>
