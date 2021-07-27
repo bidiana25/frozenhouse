@@ -17,9 +17,9 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>53</h3>
+                <h3><?= $jmlh_pembelian ?></h3>
 
-                <p>Omset Penjualan</p>
+                <p>Jumlah Pembelian</p>
             </div>
             <div class="icon">
                 <i class="ion ion-stats-bars"></i>
@@ -55,3 +55,25 @@
     </div>
     <!-- ./col -->
 </div>
+
+<label style="color: red;">Stok Barang Dibawah 4</label>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th style="width: 10px">No</th>
+            <th>Nama Barang</th>
+            <th>Stok</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        foreach ($barang as $key => $value) {
+        ?>
+            <tr>
+                <td><?php echo $key + 1; ?></td>
+                <td><?php echo $value->nama_barang; ?></td>
+                <td><?php echo $value->stok_barang; ?></td>
+            </tr>
+    </tbody>
+<?php } ?>
+</table>

@@ -67,4 +67,11 @@ class EntryPenjualan extends MY_Controller
         $this->EntryPenjualanModel->updatedb($data, $id);
         redirect('/EntryPenjualan');
     }
+    public function cetaklaporan()
+    {
+        $data = [
+            "title" => "Cetak Data Penjualan",
+        ];
+        $this->render_backend('template/backend/pages/hal_cetak_penjualan', $data); // load view home.php
+    }
 }

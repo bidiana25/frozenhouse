@@ -20,6 +20,8 @@ class Page extends MY_Controller
         $data['jmlh_penjualan'] = $this->DashboardModel->hitungjumlahtransaksi();
         $data['jmlh_pelanggan'] = $this->DashboardModel->hitungjumlahcustomer();
         $data['jmlh_barang'] = $this->DashboardModel->hitungjumlahbarang();
+        $data['jmlh_pembelian'] = $this->DashboardModel->hitungjumlahbeli();
+        $data['barang'] = $this->DashboardModel->select_barang();
 
         $this->render_backend('home', $data); // load view home.php
     }
