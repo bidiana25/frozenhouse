@@ -1,5 +1,5 @@
 <?php
-class PelangganModel extends CI_Model
+class pelangganModel extends CI_Model
 {
 
     public function select_pelanggan()
@@ -9,21 +9,29 @@ class PelangganModel extends CI_Model
         $pelanggan = $this->db->get();
         return $pelanggan->result();
     }
-    function tambah($data)
+    public function select_pelanggan_edit($id)
     {
-        $this->db->insert('t_m_akun2', $data);
+        $this->db->select('*');
+        $this->db->from('pelanggan');
+        $this->db->where('id_pelanggan', $id);
+        $barang = $this->db->get();
+        return $barang->result();
+    }
+    function insertdb($data)
+    {
+        $this->db->insert('pelanggan', $data);
         return TRUE;
     }
 
-    public function delete($id)
+    public function deletedb($id)
     {
-        $this->db->where('id_akun2', $id);
-        $this->db->delete('t_m_akun2');
+        $this->db->where('id_pelanggan', $id);
+        $this->db->delete('pelanggan');
     }
 
-    public function update_akun($data, $id)
+    public function updatedb($data, $id)
     {
-        $this->db->where('id_akun2', $id);
-        return $this->db->update('t_m_akun2', $data);
+        $this->db->where('id_pelanggan', $id);
+        return $this->db->update('pelanggan', $data);
     }
 }

@@ -9,21 +9,29 @@ class SatuanModel extends CI_Model
         $barang = $this->db->get();
         return $barang->result();
     }
-    function tambah($data)
+    public function select_satuan_edit($id)
     {
-        $this->db->insert('t_m_akun2', $data);
+        $this->db->select('*');
+        $this->db->from('satuan_barang');
+        $this->db->where('id_satuan', $id);
+        $barang = $this->db->get();
+        return $barang->result();
+    }
+    function insertdb($data)
+    {
+        $this->db->insert('satuan_barang', $data);
         return TRUE;
     }
 
-    public function delete($id)
+    public function deletedb($id)
     {
-        $this->db->where('id_akun2', $id);
-        $this->db->delete('t_m_akun2');
+        $this->db->where('id_satuan', $id);
+        $this->db->delete('satuan_barang');
     }
 
-    public function update_akun($data, $id)
+    public function updatedb($data, $id)
     {
-        $this->db->where('id_akun2', $id);
-        return $this->db->update('t_m_akun2', $data);
+        $this->db->where('id_satuan', $id);
+        return $this->db->update('satuan_barang', $data);
     }
 }

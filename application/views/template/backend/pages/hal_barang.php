@@ -1,6 +1,8 @@
+<a href="<?= base_url("Barang/TambahBarang"); ?>">
+    <i class="fas fa-plus-circle">Tambah Data</i>
+</a>
 <table id="example1" class="table table-bordered table-striped">
     <thead>
-        <button type="button" class="btn btn-block btn-info btn-sm">Tambah Data</button>
         <tr>
             <th>No</th>
             <th>Kategori Barang</th>
@@ -20,17 +22,16 @@
                 <td><?php echo $value->nama_kategori; ?></td>
                 <td><?php echo $value->nama_barang; ?></td>
                 <td><?php echo $value->harga; ?></td>
-                <td><?php echo $value->satuan; ?></td>
+                <td><?php echo $value->nama; ?></td>
                 <td><?php echo $value->stok_barang; ?></td>
                 <td>
                     <!--Edit-->
-                    <a href="" class="btn-edit">
-                        <i class="icon feather icon-edit"></i>
+                    <a href="<?= base_url("Barang/Edit/" . $value->id_barang); ?>">
+                        <ion-icon name="create-outline"></ion-icon>
                     </a>
-
                     <!--Hapus-->
-                    <a href="" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')">
-                        <i class="feather icon-trash-2 f-w-600 f-16 text-c-red"></i>
+                    <a href="<?php echo site_url('Barang/delete/' . $value->id_barang) ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')">
+                        <ion-icon name="trash-outline"></ion-icon>
                     </a>
                 </td>
             </tr>

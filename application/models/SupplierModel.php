@@ -9,21 +9,29 @@ class SupplierModel extends CI_Model
         $supplier = $this->db->get();
         return $supplier->result();
     }
-    function tambah($data)
+    public function select_supplier_edit($id)
     {
-        $this->db->insert('t_m_akun2', $data);
+        $this->db->select('*');
+        $this->db->from('supplier');
+        $this->db->where('id_supplier', $id);
+        $barang = $this->db->get();
+        return $barang->result();
+    }
+    function insertdb($data)
+    {
+        $this->db->insert('supplier', $data);
         return TRUE;
     }
 
-    public function delete($id)
+    public function deletedb($id)
     {
-        $this->db->where('id_akun2', $id);
-        $this->db->delete('t_m_akun2');
+        $this->db->where('id_supplier', $id);
+        $this->db->delete('supplier');
     }
 
-    public function update_akun($data, $id)
+    public function updatedb($data, $id)
     {
-        $this->db->where('id_akun2', $id);
-        return $this->db->update('t_m_akun2', $data);
+        $this->db->where('id_supplier', $id);
+        return $this->db->update('supplier', $data);
     }
 }

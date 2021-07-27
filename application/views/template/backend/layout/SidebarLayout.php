@@ -89,7 +89,9 @@
             </li>
             <li class="nav-header">Modul Penjualan</li>
             <li class="nav-item">
-                <a href="../kanban.html" class="nav-link">
+                <a href="<?= base_url("EntryPenjualan/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "EntryPenjualan") {
+                                                                                    echo 'active';
+                                                                                } ?>">
                     <i class="nav-icon fas fa-shopping-cart"></i>
                     <p>
                         Entry Penjualan
@@ -97,7 +99,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="../kanban.html" class="nav-link">
+                <a href="<?= base_url("CetakLaporan/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "CetakLaporan") {
+                                                                                echo 'active';
+                                                                            } ?>">
                     <i class="nav-icon fas fa-newspaper"></i>
                     <p>
                         Laporan Data Penjualan
@@ -106,19 +110,12 @@
             </li>
             <li class="nav-header">Modul Pembelian</li>
             <li class="nav-item">
-                <a href="../kanban.html" class="nav-link">
+                <a href="<?= base_url("PesananPembelian/"); ?>" class="nav-link <?php if ($this->uri->segment(1) == "PesananPembelian") {
+                                                                                    echo 'active';
+                                                                                } ?>">
                     <i class="nav-icon fas fa-shopping-bag"></i>
                     <p>
                         Pesanan Pembelian
-                    </p>
-                </a>
-            </li>
-            <li class="nav-header">Modul Persediaan</li>
-            <li class="nav-item">
-                <a href="../kanban.html" class="nav-link">
-                    <i class="nav-icon fas fa-list-alt"></i>
-                    <p>
-                        Penerimaan Barang
                     </p>
                 </a>
             </li>

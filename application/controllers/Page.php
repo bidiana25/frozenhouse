@@ -7,6 +7,7 @@ class Page extends MY_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('DashboardModel');
     }
 
     public function home()
@@ -15,7 +16,10 @@ class Page extends MY_Controller
 
             "title" => "Dashboard",
         ];
-        //CASH IN HAND
+        $data['omset_penjualan'] = $this->DashboardModel->select_penjualan();
+        $data['jmlh_penjualan'] = $this->DashboardModel->hitungjumlahtransaksi();
+        $data['jmlh_pelanggan'] = $this->DashboardModel->hitungjumlahcustomer();
+        $data['jmlh_barang'] = $this->DashboardModel->hitungjumlahbarang();
 
         $this->render_backend('home', $data); // load view home.php
     }

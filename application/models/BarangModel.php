@@ -6,26 +6,41 @@ class BarangModel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('barang a');
-        $this->db->join('kategori_barang b', 'a.id_barang=b.id_kategori');
-        $this->db->join('satuan_barang c', 'a.id_barang=c.id_satuan');
+        $this->db->join('kategori_barang b', 'a.kategori_barang=b.id_kategori');
+        $this->db->join('satuan_barang c', 'a.satuan=c.id_satuan');
         $barang = $this->db->get();
         return $barang->result();
     }
-    function tambah($data)
+    function insertdb($data)
     {
-        $this->db->insert('t_m_akun2', $data);
+        $this->db->insert('barang', $data);
         return TRUE;
     }
 
-    public function delete($id)
+    public function deletedb($id)
     {
-        $this->db->where('id_akun2', $id);
-        $this->db->delete('t_m_akun2');
+        $this->db->where('id_barang', $id);
+        $this->db->delete('barang');
     }
-
-    public function update_akun($data, $id)
+    public function updatedb($data, $id_barang)
     {
-        $this->db->where('id_akun2', $id);
-        return $this->db->update('t_m_akun2', $data);
+        $this->db->where('id_barang', $id_barang);
+        return $this->db->update('barang', $data);
+    }
+    public function select_barang_edit($id)
+    {
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('id_barang', $id);
+        $barang = $this->db->get();
+        return $barang->result();
+    }
+    public function select_barang_id($barang_id)
+    {
+        $this->db->select('*');
+        $this->db->from('barang');
+        $this->db->where('id_barang', $barang_id);
+        $barang = $this->db->get();
+        return $barang->result();
     }
 }

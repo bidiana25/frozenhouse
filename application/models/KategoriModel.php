@@ -9,21 +9,29 @@ class KategoriModel extends CI_Model
         $barang = $this->db->get();
         return $barang->result();
     }
-    function tambah($data)
+    public function select_kategori_edit($id)
     {
-        $this->db->insert('t_m_akun2', $data);
+        $this->db->select('*');
+        $this->db->from('kategori_barang');
+        $this->db->where('id_kategori', $id);
+        $barang = $this->db->get();
+        return $barang->result();
+    }
+    function insertdb($data)
+    {
+        $this->db->insert('kategori_barang', $data);
         return TRUE;
     }
 
-    public function delete($id)
+    public function deletedb($id)
     {
-        $this->db->where('id_akun2', $id);
-        $this->db->delete('t_m_akun2');
+        $this->db->where('id_kategori', $id);
+        $this->db->delete('kategori_barang');
     }
 
-    public function update_akun($data, $id)
+    public function updatedb($data, $id)
     {
-        $this->db->where('id_akun2', $id);
-        return $this->db->update('t_m_akun2', $data);
+        $this->db->where('id_kategori', $id);
+        return $this->db->update('kategori_barang', $data);
     }
 }
